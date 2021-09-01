@@ -11,6 +11,7 @@ public class LoginPhoneBook {
     @BeforeMethod
     public void init(){
         wd = new ChromeDriver();
+        //navigate().to() - save history
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
         wd.manage().window().maximize();
     }
@@ -18,13 +19,18 @@ public class LoginPhoneBook {
     @Test
     public void loginTest(){
         //open login form
-
+        wd.findElement(By.cssSelector("a[href='/login']")).click();
         //fill email
         type(By.cssSelector("[placeholder='Email']"), "qwerty@ru.ru");
         //fill password
         type(By.cssSelector("[placeholder='Password']"), "AaSsDd123*$!");
         //click login
+        wd.findElement(By.cssSelector("button")).click();
 
+    }
+
+    @Test
+    public void loginXPathTest(){
 
     }
 
@@ -34,8 +40,5 @@ public class LoginPhoneBook {
             element.clear();
             element.sendKeys(text);
         }
-
-
-
 
 }

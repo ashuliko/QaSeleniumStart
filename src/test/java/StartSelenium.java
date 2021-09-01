@@ -29,22 +29,26 @@ public void preCondition(){
     wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
 
     WebElement element1 = wd.findElement(By.tagName("div"));
+    wd.findElement(By.xpath("//div"));
     List<WebElement> list = wd.findElements(By.tagName("div"));
+
+
     System.out.println(list.size());
     WebElement elDiv2 = list.get(1);
 
 
     WebElement element2 = wd.findElement(By.id("root"));
-    WebElement element6 = wd.findElement(By.cssSelector("#root"));
+    wd.findElement(By.xpath("//*[@id='root']"));
+    wd.findElement(By.cssSelector("#root"));
 
     //WebElement element3 = wd.findElement(By.className("login_login__3EHKB"));
     WebElement element3 = wd.findElement(By.className("container"));
     WebElement element4 = wd.findElement(By.cssSelector("login_login__3EHKB"));
-    WebElement element5 = wd.findElement(By.cssSelector(".container"));
-
+    wd.findElement(By.xpath("//*[@class='container']"));
+    wd.findElement(By.xpath("//[@class='login_login__3EHKB']"));
 }
 @Test
-    public  void loginTest(){
+    public void loginTest(){
 
     //step1 open www
     wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
@@ -67,15 +71,21 @@ public void preCondition(){
     WebElement password = listInputs.get(1); //dostali iz lista: listInputs
     wd.findElement(By.cssSelector("[placeholder = 'Password']"));
     password.click();
-    password.clear();password.sendKeys("AaSsDd123*$!");
+    password.clear();
+    password.sendKeys("AaSsDd123*$!");
 
     //step5 click login button
     WebElement loginB = wd.findElement(By.tagName("button"));
-    WebElement loginD = wd.findElement(By.cssSelector("button"));
+    wd.findElement(By.cssSelector("button"));
     loginB.click();
 
 
 }
+
+    @Test
+    public void loginXPathTest(){
+
+    }
 
 @AfterMethod
     public void postCondition(){
